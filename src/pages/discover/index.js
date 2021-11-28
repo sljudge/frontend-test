@@ -130,33 +130,35 @@ const Discover = props => {
   }, [])
 
   return (
-    <DiscoverWrapper>
+    <>
       <MobilePageTitle>Discover</MobilePageTitle>
-      <MovieFilters>
-        <SearchFilters
-          data={data}
-          genres={genreOptions || []}
-          ratings={ratingOptions}
-          languages={languageOptions}
-          handleMovieSearch={handleMovieSearch}
-          updateFilters={updateFilters}
-        />
-      </MovieFilters>
-      {
-        !loading ?
-          <MovieResults>
-            {totalCount > 0 && <TotalCounter>{totalCount} results</TotalCounter>}
-            <MovieList
-              movies={results || []}
-              genres={genreOptions || []}
-            />
-          </MovieResults>
-          :
-          <LoaderCont>
-            <Loader src={Spinner} />
-          </LoaderCont>
-      }
-    </DiscoverWrapper>
+      <DiscoverWrapper>
+        <MovieFilters>
+          <SearchFilters
+            data={data}
+            genres={genreOptions || []}
+            ratings={ratingOptions}
+            languages={languageOptions}
+            handleMovieSearch={handleMovieSearch}
+            updateFilters={updateFilters}
+          />
+        </MovieFilters>
+        {
+          !loading ?
+            <MovieResults>
+              <TotalCounter>{totalCount > 0 && `${totalCount} results`}</TotalCounter>
+              <MovieList
+                movies={results || []}
+                genres={genreOptions || []}
+              />
+            </MovieResults>
+            :
+            <LoaderCont>
+              <Loader src={Spinner} />
+            </LoaderCont>
+        }
+      </DiscoverWrapper>
+    </>
   )
 }
 
@@ -175,6 +177,7 @@ const DiscoverWrapper = styled.main`
 const TotalCounter = styled.div`
   font-weight: 900;
   padding: 1rem 0;
+  height: 3rem;
 `
 
 const MovieResults = styled.div`
@@ -182,6 +185,7 @@ const MovieResults = styled.div`
 `
 
 const MovieFilters = styled.div`
+    margin-top: 3rem;
 `
 
 const MobilePageTitle = styled.header`

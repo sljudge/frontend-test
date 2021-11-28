@@ -40,12 +40,12 @@ const SearchFilters = props => {
 }
 
 const FiltersWrapper = styled.div`
+  box-shadow: 1px 3px 10px 0px rgba(0,0,0,0.1);
   position: relative;
   min-width: 230px;
   max-width: 230px;
   margin-left: 1rem;
   @media (max-width: 1000px){
-    padding: 1rem 0;
     max-width: 100%;
   }
 `
@@ -54,7 +54,7 @@ const SearchFiltersCont = styled.div`
   background-color: white;
   border-radius: 3px;
   transition: all .3s ease-in-out;
-  padding: 1rem;
+  padding: 0 1rem;
   
   ${props => props.mobileHide && !props.show && css`
     @media (max-width: 1000px){
