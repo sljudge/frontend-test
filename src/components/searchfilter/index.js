@@ -6,13 +6,14 @@ import ExpandableFilter from "../../components/expandablefilter";
 import SearchBar from "../../components/searchbar";
 
 const SearchFilters = props => {
-  const { genres, ratings, languages, handleMovieSearch, updateFilters } = { ...props }
+  const { genres, ratings, languages, handleMovieSearch, updateFilters, data } = { ...props }
   const [showExtraConfigurations, setShowExtraConfigurations] = useState(window.innerWidth > 1000)
 
   return (
     <FiltersWrapper>
       <SearchFiltersCont className="search_inputs_cont">
         <SearchBar
+          data={data}
           handleMovieSearch={handleMovieSearch}
           showExtraConfigurations={{ get: showExtraConfigurations, set: setShowExtraConfigurations }} />
       </SearchFiltersCont>
@@ -45,6 +46,7 @@ const FiltersWrapper = styled.div`
   margin-left: 1rem;
   @media (max-width: 1000px){
     padding: 1rem 0;
+    max-width: 100%;
   }
 `
 

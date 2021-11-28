@@ -7,7 +7,6 @@ const MovieList = props => {
   const { movies, genres } = { ...props }
   return (
     <MoviesWrapper>
-      {/* Finish the MovieItem component and use it here to display the movie results */}
       {movies.map(movie => (
         <MovieItem
           key={movie.id}

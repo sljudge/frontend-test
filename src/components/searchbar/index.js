@@ -8,7 +8,7 @@ import CalendarIcon from "../../images/year-icon.png";
 import FilterIcon from "../../images/filter-icon.png";
 
 const SearchBar = props => {
-    const { handleMovieSearch, showExtraConfigurations } = { ...props }
+    const { handleMovieSearch, showExtraConfigurations, data } = { ...props }
     const [queryStringValue, setQueryStringValue] = useState("")
     const [yearValue, setYearValue] = useState("")
 
@@ -28,8 +28,8 @@ const SearchBar = props => {
     const debouncedMovieSearch = useCallback(
         debounce((keyWord, year) => {
             handleMovieSearch(keyWord, year)
-        }, 1000),
-        []
+        }, 500),
+        [data]
     )
 
     useEffect(() => {

@@ -90,21 +90,21 @@ const Discover = props => {
 
     const newMovies = await loadNewMovies(queryString, year)
 
-    updateResults(newMovies.results, newMovies.page)
+    updateResults(newMovies)
 
     setTimeout(() => {
       setLoading(false)
     }, 500);
   }
 
-  const updateResults = (movies, page) => {
+  const updateResults = (newData) => {
     setData(
       produce(data, draftState => ({
         ...draftState,
-        results: movies,
-        totalCount: movies.total_results,
-        totalPages: movies.total_pages,
-        currentPage: page
+        results: newData.results,
+        totalCount: newData.total_results,
+        totalPages: newData.total_pages,
+        currentPage: newData.page
       }))
     )
   }
@@ -134,6 +134,7 @@ const Discover = props => {
       <MobilePageTitle>Discover</MobilePageTitle>
       <MovieFilters>
         <SearchFilters
+          data={data}
           genres={genreOptions || []}
           ratings={ratingOptions}
           languages={languageOptions}
@@ -173,6 +174,7 @@ const DiscoverWrapper = styled.main`
 
 const TotalCounter = styled.div`
   font-weight: 900;
+  padding: 1rem 0;
 `
 
 const MovieResults = styled.div`
