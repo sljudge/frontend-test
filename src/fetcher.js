@@ -23,7 +23,7 @@ export const getMovieImageURL = (imagePath, imageWidth) => {
     return `${apiRequest.baseImageURL}/w${imageWidth}${imagePath}?api_key=${apiRequest.apiKey}`
 }
 
-export const getMoviesFromSearch = async (queryString, year, page = 1) => {
+export const getMoviesFromSearch = async (queryString, year, filters = {}, page = 1) => {
 
     let data = await apiRequest.movie('/search/movie', {
         params: {
@@ -31,6 +31,7 @@ export const getMoviesFromSearch = async (queryString, year, page = 1) => {
             query: queryString,
             year: year,
             includeAdult: false,
+            with_genres: filters && filters.genre && filters.genre.join(',')
         }
     })
         .then(response => response.data)

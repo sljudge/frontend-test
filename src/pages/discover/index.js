@@ -51,7 +51,7 @@ const Discover = props => {
   }
 
   const loadNewMovies = async (queryString, year) => {
-    const results = await fetcher.getMoviesFromSearch(queryString, year)
+    const results = await fetcher.getMoviesFromSearch(queryString, year, filters)
     return results
   }
 
