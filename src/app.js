@@ -24,9 +24,7 @@ const App = props => {
   }
 
   const handleContentClick = () => {
-    if (sidebarOpen) {
-      setSideBarOpen(false)
-    }
+    setSideBarOpen(false)
   }
 
   useEffect(() => {
@@ -64,14 +62,14 @@ const ContentWrapper = styled.main`
   flex-grow: 1;
   display: flex;
   background-color: ${colors.lightBackground};
-  padding: 7rem 2rem 0;
+  padding: 5rem 2rem 0;
   overflow-y: scroll;
   overflow-x: hidden;
   @media (min-width: 1200px){
     padding: 2rem;
   }
   @media (max-width: 600px){
-    padding: 7rem 1rem;
+    padding: 5rem 1rem;
   }
 `
 

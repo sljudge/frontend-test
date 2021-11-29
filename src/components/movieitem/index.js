@@ -74,12 +74,15 @@ const MovieItemWrapper = styled.div`
   margin: 0 0 2rem;
   padding: 1rem;
   box-shadow: 1px 3px 10px 0px rgba(0,0,0,0.1);
-  @media (max-width: 600px){
-    flex-direction: column;
+  @media (max-width:600px){
+    padding: 0.25rem;
   }
 `
 
 const LeftCont = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 const RightCont = styled.div`
@@ -91,7 +94,7 @@ const RightCont = styled.div`
   justify-content: space-between;
   align-items: start;
   @media (max-width: 600px){
-    padding-left: 0;
+    padding: 0.5rem;
   }
 `
 
@@ -105,11 +108,19 @@ const MovieDetailsCont = styled.div`
 const MovieTitle = styled.h2`
   font-weight: 800;
   font-size: 1.5rem;
+  @media (max-width: 600px){
+    font-size: 1rem;
+  }
 `
 
 const Genres = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   color: ${colors.primaryColor};
   padding: 0.5rem 0;
+  @media (max-width: 600px){
+    font-size: 0.75rem;
+  }
 `
 
 const GenreLink = styled.a`
@@ -124,17 +135,27 @@ const MovieScore = styled.div`
   padding: 0.5rem;
   border-radius: 0.5rem;
   color: white;
-  background-color: ${colors.primaryColor}
+  background-color: ${colors.primaryColor};
+  @media (max-width: 600px){
+    font-size: 0.75rem;
+    padding: 0.25rem;
+  }
 `
 
 const MovieImage = styled.img`
+  @media (max-width: 600px){
+    width: 150px;
+  }
+  @media (max-width: 450px){
+    width: 100px;
+  }
 `
 
 const MovieOverview = styled.p`
   flex-grow: 1;
   font-size: 1.15rem;
   @media (max-width: 600px){
-    font-size: 1rem;
+    font-size: 0.75rem;
   }
 `
 const MovieReleaseDate = styled.p`
